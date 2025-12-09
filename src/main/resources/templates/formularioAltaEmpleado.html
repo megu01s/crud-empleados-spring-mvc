@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Alta Modificacion</title>
+</head>
+
+<body>
+    <h1>Formulario de Alta /Modificacion de empleado</h1>
+</body>
+<div>
+    <form th:object="${empleado}" method="post" th:action="@{/empleados/guardar}">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" th:field="*{nombre}" placeholder="Su nombre aqui, por favor" required /><br />
+
+        <label for="primerApellido">Primer Apellido:</label>
+        <input type="text" id="primerApellido" th:field="*{primerApellido}"
+            placeholder="Su primer apellido aqui, por favor" /><br />
+
+        <label for="segundoApellido">Segundo Apellido:</label>
+        <input type="text" id="segundoApellido" th:field="*{segundoApellido}"
+            placeholder="Su segundo apellido aqui, por favor" /><br />
+
+        <fieldset>
+            <legend>Género:</legend>
+            <label for="generoMasculino">Masculino</label>
+            <input type="radio" id="generoMasculino" value="HOMBRE" th:field="*{genero}">
+            <label for="generoFemenino">Femenino</label>
+            <input type="radio" id="generoFemenino" value="MUJER" th:field="*{genero}">
+            <label for="generoOtro">Otro</label>
+            <input type="radio" id="generoOtro" value="OTRO" th:field="*{genero}">
+        </fieldset>
+
+        <label for="salario">Salario:</label>
+        <input type="number" id="salario" step="0.01" th:field="*{salario}" /><br />
+
+        <label for="fechaAlta">Fecha de Alta:</label>
+        <input type="date" id="fechaAlta" th:field="*{fechaAlta}" /><br />
+
+        <!-- Los Departamentos tienen que ser recuperados de la tabla departamentos de la base de datos -->
+        <button type="submit">Enviar</button>
+    </form>
+
+</html>

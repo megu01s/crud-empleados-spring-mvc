@@ -11,6 +11,14 @@
 
 <body>
     <h1>Listado de Empleados</h1>
+
+    <div>
+        <!-- @ en thymeleaf evalua la URL o endpoint que recibira la peticion
+         al hacer click en el enlace hipertexto Alta de Empleado.
+         El caracter # significa que la peticion (request) recibe -->
+        <h2><a th:href="@{/empleados/alta}">Alta de Empleado</a></h2>
+        <h2><a th:href="@{/#}">Descartar</a></h2>
+    </div>
     <table>
         <thead>
             <th>Nombre</th>

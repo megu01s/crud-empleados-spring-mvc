@@ -48,4 +48,5 @@ public class Empleado implements Serializable{
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Departamento departamento;
+    
 }
