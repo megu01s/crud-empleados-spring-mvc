@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descartar Empleado</title>
+</head>
+
+<body>
+    <h1>Elige el ID del Empleado para eliminar</h1>
+
+
+    <form th:action="@{/empleados/eliminar}" method="delete" th:object="${empleado}">
+        <label for="empleadoSelect">Empleado:</label>
+        <select id="empleadoSelect" th:field="*{id}">
+            <option th:each="empleado : ${empleados}" th:value="${empleado.id}"
+                th:text="${empleado.nombre} + ' ' + ${empleado.primerApellido} + ' ' + ${empleado.segundoApellido}">
+            </option>
+        </select><br />
+        <button type="submit">Eliminar</button>
+    </form>
+</body>
+
+</html>

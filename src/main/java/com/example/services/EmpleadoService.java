@@ -10,6 +10,7 @@ public interface EmpleadoService {
     Empleado getEmpleado(int empleadoId);
     Empleado saveEmpleado(Empleado empleado);
     void deleteEmpleado(Empleado empleado);
+    void eliminarEmpleado(int empleadoId);
     Empleado updateEmpleado(int empleadoId);
     List<Empleado> findByNombre(String nombre);
     boolean existsBySalario(double salario);

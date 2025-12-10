@@ -9,8 +9,7 @@
 
 <body>
     <h1>Formulario de Alta /Modificacion de empleado</h1>
-</body>
-<div>
+
     <form th:object="${empleado}" method="post" th:action="@{/empleados/guardar}">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" th:field="*{nombre}" placeholder="Su nombre aqui, por favor" required /><br />
@@ -40,7 +39,21 @@
         <input type="date" id="fechaAlta" th:field="*{fechaAlta}" /><br />
 
         <!-- Los Departamentos tienen que ser recuperados de la tabla departamentos de la base de datos -->
-        <button type="submit">Enviar</button>
+        <label for="departamento">Departamento:</label>
+        <select id="departamento" th:field="*{departamento}">
+            <option value="">--Seleccione un Departamento--</option>
+            <!-- <option value=""></option> -->
+            <option th:each="departamento : ${departamentos}" th:value="${departamento.id}"
+                th:text="${departamento.nombre}"></option>
+        </select><br />
+        <label for="telefono">Teléfono(s):</label>
+        <input type="text" id="telefono" name="numeroTelefono" placeholder="Uno o varios separados por ;" />
+
+        <label for="correo">Email:</label>
+        <input type="text" id="correo" name="direccionCorreo" placeholder="Uno o varios separados por ;" />
+        <Input type="submit" value="Enviar formulario">
     </form>
+
+</body>
 
 </html>

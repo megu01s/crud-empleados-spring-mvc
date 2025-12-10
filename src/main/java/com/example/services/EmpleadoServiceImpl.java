@@ -2,7 +2,6 @@ package com.example.services;
 
 import java.util.List;
 
-
 import org.springframework.stereotype.Service;
 
 import com.example.dao.EmpleadoDao;
@@ -62,6 +61,10 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     @Override
     public boolean existsBySalario(double salario) {
         return empleadoDao.existsBySalario(salario);
+    }
+    @Override
+    public void eliminarEmpleado(int empleadoId) {
+        empleadoDao.delete(empleadoDao.findById(empleadoId).get());
     }
 
 }
